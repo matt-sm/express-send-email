@@ -17,7 +17,7 @@ describe('validation', async () => {
     const body = { to: 'to', from: 'from@example.com', subject: 'subject', text: 'text' }
 
     await validator({ body }, null, nextMock)
-    expect(nextMock.mock.calls[0][0].message).toMatch(/\"to\" must be a valid email/)
+    expect(nextMock.mock.calls[0][0].message).toMatch(/"to" must be a valid email/)
   })
 
   test('invalid from email', async () => {
@@ -25,7 +25,7 @@ describe('validation', async () => {
     const body = { to: 'to@example.com', from: 'from', subject: 'subject', text: 'text' }
 
     await validator({ body }, null, nextMock)
-    expect(nextMock.mock.calls[0][0].message).toMatch(/\"from\" must be a valid email/)
+    expect(nextMock.mock.calls[0][0].message).toMatch(/"from" must be a valid email/)
   })
 
   test('required to email', async () => {
@@ -33,7 +33,7 @@ describe('validation', async () => {
     const body = { from: 'from@example', subject: 'subject', text: 'text' }
 
     await validator({ body }, null, nextMock)
-    expect(nextMock.mock.calls[0][0].message).toMatch(/\"to\" is required/)
+    expect(nextMock.mock.calls[0][0].message).toMatch(/"to" is required/)
   })
 
   test('required from email', async () => {
@@ -41,7 +41,7 @@ describe('validation', async () => {
     const body = { to: 'to@example.com', subject: 'subject', text: 'text' }
 
     await validator({ body }, null, nextMock)
-    expect(nextMock.mock.calls[0][0].message).toMatch(/\"from\" is required/)
+    expect(nextMock.mock.calls[0][0].message).toMatch(/"from" is required/)
   })
 })
 

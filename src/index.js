@@ -16,6 +16,5 @@ app.post('/email', emailSenderFailover)
 
 app.use(error)
 
-
 app.listen(port)
 console.log(`Listening on port ${port}`) // eslint-disable-line

@@ -2,7 +2,7 @@ import Joi from 'joi'
 import { mailgun, sendgrid } from './services'
 
 export const home = async (req, res) => {
-  res.status(200).send({message: 'ok'})
+  res.status(200).send({ message: 'ok' })
 }
 
 export const validator = async (req, res, next) => {
@@ -31,7 +31,7 @@ export const emailSender = async (req, res, next) => {
     await mailgun(req.body)
     res.status(200).send({ message: 'Mailgun email sent' })
   } catch (err) {
-    console.error(err)
+    console.error(err) // eslint-disable-line
     next('route')
   }
 }
@@ -45,7 +45,7 @@ export const emailSenderFailover = async (req, res, next) => {
   }
 }
 
-export const error = (err, req, res, next) => {
-  console.error(err)
+export const error = (err, req, res, next) => { // eslint-disable-line
+  console.error(err) // eslint-disable-line
   res.status(500).send({ error: err.message })
 }
