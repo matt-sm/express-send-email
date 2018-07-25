@@ -22,7 +22,7 @@ export const validate = async (req, res, next) => {
   next()
 }
 
-export const emailPrimary = async (req, res, next) => {
+export const sendEmail = async (req, res, next) => {
   try {
     await mailgun(req.body)
     res.status(200).send({ message: 'Mailgun email sent' })
@@ -32,7 +32,7 @@ export const emailPrimary = async (req, res, next) => {
   }
 }
 
-export const emailFailover = async (req, res, next) => {
+export const sendEmailFailover = async (req, res, next) => {
   try {
     await sendgrid(req.body)
     res.status(200).send({ message: 'Sendgrid email sent' })

@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
-import { validate, emailPrimary, emailFailover, error } from './middleware'
+import { validate, sendEmail, sendEmailFailover, error } from './middleware'
 
 const app = express()
 
@@ -9,8 +9,8 @@ app.use(morgan('tiny'))
 app.use(bodyParser.json())
 app.use(validate)
 
-app.post('/email', emailPrimary)
-app.post('/email', emailFailover)
+app.post('/email', sendEmail)
+app.post('/email', sendEmailFailover)
 
 app.use(error)
 
