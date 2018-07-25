@@ -1,6 +1,6 @@
-Simple api to send an email via Mailgun with a Sendgrid fallback.
+A simple api to send an email via Mailgun with a Sendgrid fallback.
 
-Sample app is running at https://sends-emails.herokuapp.com
+A sample app is running at https://sends-emails.herokuapp.com.
 
 ## Install:
 `npm i`
