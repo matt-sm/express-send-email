@@ -6,6 +6,7 @@ const api = async apiParams => {
   const {
     url,
     auth,
+    headers,
     method = 'get',
     params = {},
     data = {},
@@ -16,6 +17,7 @@ const api = async apiParams => {
   return axios({
     url,
     auth,
+    headers,
     method,
     params,
     data,
