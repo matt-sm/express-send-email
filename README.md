@@ -4,6 +4,7 @@ A sample app is running at https://sends-emails.herokuapp.com.
 
 ## Install:
 `npm i`
+
 ## Run
 - run locally with nodemon + babel: `npm run dev`
 - build and run on a server: `npm start`
@@ -11,9 +12,15 @@ A sample app is running at https://sends-emails.herokuapp.com.
 - lint code: `npm run eslint`
 - tests: `npm test`
 
+## Environment Variables
+`SENDGRID_API_KEY`: SendGrid api key
+
+`MAILGUN_API_KEY`: Mailgun api key
+
+`MAILGUN_DOMAIN`: Mailgun domain name
+
 ## API
 ### Send Email
-----
   Sends a single email
 
 * **URL**
