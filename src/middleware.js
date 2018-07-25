@@ -1,7 +1,11 @@
 import Joi from 'joi'
 import { mailgun, sendgrid } from './services'
 
-export const validate = async (req, res, next) => {
+export const home = async (req, res) => {
+  res.status(200).send({message: 'ok'})
+}
+
+export const validator = async (req, res, next) => {
   const schema = Joi.object().keys({
     to: Joi.string()
       .email()
@@ -22,7 +26,7 @@ export const validate = async (req, res, next) => {
   next()
 }
 
-export const sendEmail = async (req, res, next) => {
+export const emailSender = async (req, res, next) => {
   try {
     await mailgun(req.body)
     res.status(200).send({ message: 'Mailgun email sent' })
@@ -32,7 +36,7 @@ export const sendEmail = async (req, res, next) => {
   }
 }
 
-export const sendEmailFailover = async (req, res, next) => {
+export const emailSenderFailover = async (req, res, next) => {
   try {
     await sendgrid(req.body)
     res.status(200).send({ message: 'Sendgrid email sent' })

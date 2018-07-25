@@ -1,16 +1,17 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
-import { validate, sendEmail, sendEmailFailover, error } from './middleware'
+import { home, validator, emailSender, emailSenderFailover, error } from './middleware'
 
 const app = express()
 
-app.use(morgan('tiny'))
+app.use(morgan('combined'))
 app.use(bodyParser.json())
-app.use(validate)
+app.get('/', home)
 
-app.post('/email', sendEmail)
-app.post('/email', sendEmailFailover)
+app.use(validator)
+app.post('/email', emailSender)
+app.post('/email', emailSenderFailover)
 
 app.use(error)
 
