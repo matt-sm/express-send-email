@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import { home, validator, emailSender, emailSenderFailover, error } from './middleware'
 
 const app = express()
+const port = process.env.PORT || 4000
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
@@ -15,5 +16,6 @@ app.post('/email', emailSenderFailover)
 
 app.use(error)
 
-app.listen(4000)
-console.log('Listening on port 4000') // eslint-disable-line
+
+app.listen(port)
+console.log(`Listening on port ${port}`) // eslint-disable-line
