@@ -55,3 +55,4 @@ The following were not completed due to time constraints:
 - implement CC, BCC and multiple recipients
 - add more unit/integration tests
 - use a logging package eg. Winston
+- tag all logs for a request with a common guid
